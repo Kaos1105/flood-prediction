@@ -4,7 +4,7 @@ var quangNgai = ee.FeatureCollection("FAO/GAUL/2015/level1")
 
 // 2. Load CHIRPS Daily Precipitation Data
 var chirps = ee.ImageCollection('UCSB-CHG/CHIRPS/DAILY')
-  .filterDate('2000-01-01', '2025-01-01')
+  .filterDate('1984-11-01', '2025-01-01')
   .filterBounds(quangNgai);
 
 // 3. Load GLDAS 3-hourly Data
@@ -27,7 +27,7 @@ var dailyRain = chirps.map(function(img) {
   });
 
   // ----- CHIRPS: 3-day cumulative rain -----
-  var cumRain = chirps
+  var cumRain3Day = chirps
     .filterDate(date.advance(-2, 'day'), date.advance(1, 'day')) // t-2 to t
     .sum()
     .reduceRegion({
@@ -37,6 +37,27 @@ var dailyRain = chirps.map(function(img) {
       maxPixels: 1e13
     });
 
+// ----- CHIRPS: 5-day cumulative rain -----
+  var cumRain5Day = chirps
+    .filterDate(date.advance(-4, 'day'), date.advance(1, 'day')) // t-4 to t
+    .sum()
+    .reduceRegion({
+      reducer: ee.Reducer.mean(),
+      geometry: quangNgai.geometry(),
+      scale: 5000,
+      maxPixels: 1e13
+    });
+    
+    // ----- CHIRPS: 7-day cumulative rain -----
+  var cumRain7Day = chirps
+    .filterDate(date.advance(-6, 'day'), date.advance(1, 'day')) // t-6 to t
+    .sum()
+    .reduceRegion({
+      reducer: ee.Reducer.mean(),
+      geometry: quangNgai.geometry(),
+      scale: 5000,
+      maxPixels: 1e13
+    });
   // ----- GLDAS: Daily window -----
   var gldasDay = gldas.filterDate(date, date.advance(1, 'day'));
   var gldasSize = gldasDay.size();
@@ -83,8 +104,9 @@ var dailyRain = chirps.map(function(img) {
     'rainfall_mean_mm': stats.get('precipitation_mean'),
     'rainfall_max_mm': stats.get('precipitation_max'),
     'rainfall_std_mm': stats.get('precipitation_stdDev'),
-    'rainfall_3day_cumulative_mm': cumRain.get('precipitation'),
-
+    'rainfall_3day_cumulative_mm': cumRain3Day.get('precipitation'),
+     'rainfall_5day_cumulative_mm': cumRain5Day.get('precipitation'),
+      'rainfall_7day_cumulative_mm': cumRain7Day.get('precipitation'),
     // GLDAS
     'surface_runoff_mm': gldasStats.get('Qs_acc'),
     'subsurface_runoff_mm': gldasStats.get('Qsb_acc'),
