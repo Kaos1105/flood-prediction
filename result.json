@@ -1,0 +1,42 @@
+{
+    "XGBoost": {
+        "F1_NoFlood": 0.948079521327929,
+        "F1_Flood": 0.09427609427609426,
+        "Precision_Flood": 0.05054151624548736,
+        "Recall_Flood": 0.7,
+        "ROC_AUC": 0.9017653549098933,
+        "ConfusionMatrix": null
+    },
+    "MLP": {
+        "F1_NoFlood": 0.9254437869822485,
+        "F1_Flood": 0.07352941176470588,
+        "Precision_Flood": 0.03865979381443299,
+        "Recall_Flood": 0.75,
+        "ROC_AUC": 0.8238874586244943,
+        "ConfusionMatrix": null
+    },
+    "CNN + Weighted Loss": {
+        "F1_NoFlood": 0.9336465061655902,
+        "F1_Flood": 0.08130081300813008,
+        "Precision_Flood": 0.04297994269340974,
+        "Recall_Flood": 0.75,
+        "ROC_AUC": 0.8520779698418536,
+        "ConfusionMatrix": null
+    },
+    "CNN + Weighted Sampling": {
+        "F1_NoFlood": 0.9157873780609197,
+        "F1_Flood": 0.07032967032967033,
+        "Precision_Flood": 0.0367816091954023,
+        "Recall_Flood": 0.8,
+        "ROC_AUC": 0.8387826406767193,
+        "ConfusionMatrix": null
+    },
+    "LSTM + Weighted Sampling": {
+        "F1_NoFlood": 0.9485648237333847,
+        "F1_Flood": 0.0696864111498258,
+        "Precision_Flood": 0.03745318352059925,
+        "Recall_Flood": 0.5,
+        "ROC_AUC": 0.7901066568591395,
+        "ConfusionMatrix": null
+    }
+}
