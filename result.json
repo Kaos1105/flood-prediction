@@ -8,35 +8,35 @@
         "ConfusionMatrix": null
     },
     "MLP": {
-        "F1_NoFlood": 0.9254437869822485,
-        "F1_Flood": 0.07352941176470588,
-        "Precision_Flood": 0.03865979381443299,
+        "F1_NoFlood": 0.9132256134051466,
+        "F1_Flood": 0.06451612903225806,
+        "Precision_Flood": 0.033707865168539325,
         "Recall_Flood": 0.75,
-        "ROC_AUC": 0.8238874586244943,
+        "ROC_AUC": 0.8099485104817948,
         "ConfusionMatrix": null
     },
     "CNN + Weighted Loss": {
-        "F1_NoFlood": 0.9336465061655902,
-        "F1_Flood": 0.08130081300813008,
-        "Precision_Flood": 0.04297994269340974,
+        "F1_NoFlood": 0.9394588281097918,
+        "F1_Flood": 0.0879765395894428,
+        "Precision_Flood": 0.04672897196261682,
         "Recall_Flood": 0.75,
-        "ROC_AUC": 0.8520779698418536,
+        "ROC_AUC": 0.8500551673409342,
         "ConfusionMatrix": null
     },
     "CNN + Weighted Sampling": {
-        "F1_NoFlood": 0.9157873780609197,
-        "F1_Flood": 0.07032967032967033,
-        "Precision_Flood": 0.0367816091954023,
+        "F1_NoFlood": 0.9224376731301939,
+        "F1_Flood": 0.07547169811320754,
+        "Precision_Flood": 0.039603960396039604,
         "Recall_Flood": 0.8,
-        "ROC_AUC": 0.8387826406767193,
+        "ROC_AUC": 0.8363184994483266,
         "ConfusionMatrix": null
     },
     "LSTM + Weighted Sampling": {
-        "F1_NoFlood": 0.9485648237333847,
-        "F1_Flood": 0.0696864111498258,
-        "Precision_Flood": 0.03745318352059925,
+        "F1_NoFlood": 0.9416327322086484,
+        "F1_Flood": 0.06230529595015577,
+        "Precision_Flood": 0.03322259136212625,
         "Recall_Flood": 0.5,
-        "ROC_AUC": 0.7901066568591395,
+        "ROC_AUC": 0.7965060684075027,
         "ConfusionMatrix": null
     }
 }
